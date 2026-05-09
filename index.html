@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Adidas Store</title>
+
+  <script>
+    if (!localStorage.getItem("token")) {
+      window.location.href = "login.html";
+    }
+  </script>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="app">
+    <header>
+      <div class="logo">
+        <h2>adidas</h2>
+      </div>
+
+      <nav>
+        <button type="button" onclick="location.href='index.html'">HOME</button>
+        <button type="button" onclick="location.href='cart.html'">CART</button>
+        <button type="button" onclick="location.href='orders.html'">ORDERS</button>
+        <button type="button" class="icon-btn" onclick="location.reload()">↻</button>
+
+        <input type="text" placeholder="Search product..." />
+
+        <div class="user-box">
+          <span id="userDisplay"></span>
+          <button type="button" id="logoutBtn">LOGOUT</button>
+        </div>
+      </nav>
+    </header>
+
+    <main class="product-container" id="productContainer"></main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

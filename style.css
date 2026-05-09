@@ -1,0 +1,329 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  background: linear-gradient(#dcecf7, #87aeca);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.app {
+  width: 900px;
+  height: 680px;
+  background: #e9e9e9;
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  overflow: hidden;
+}
+
+header {
+  height: 75px;
+  background: #f5f5f5;
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  gap: 20px;
+}
+
+.logo h2 {
+  font-size: 28px;
+  font-weight: bold;
+  color: #111;
+}
+
+nav {
+  flex: 1;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+nav button {
+  width: 120px;
+  padding: 9px;
+  border: none;
+  background: #2f80c7;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+nav button:hover {
+  background: #1f6cad;
+}
+
+.icon-btn {
+  width: 45px;
+}
+
+nav input {
+  height: 35px;
+  width: 190px;
+  padding: 8px;
+  border: 1px solid #aaa;
+  border-radius: 4px;
+}
+
+.product-container {
+  height: 605px;
+  padding: 30px;
+  overflow-y: auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 35px 30px;
+}
+
+.product-card {
+  text-align: center;
+}
+
+.product-card img {
+  width: 140px;
+  height: 120px;
+  object-fit: contain;
+  background: #f4f4f4;
+  padding: 10px;
+}
+
+.product-card h3 {
+  margin-top: 12px;
+  font-size: 15px;
+  color: #222;
+}
+
+.product-card p {
+  margin: 10px 0;
+  font-size: 14px;
+  color: #333;
+}
+
+.product-card button {
+  width: 130px;
+  padding: 7px;
+  margin: 4px 0;
+  border: none;
+  border-radius: 5px;
+  background: #2f80c7;
+  color: white;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.product-card button:hover {
+  background: #1f6cad;
+}
+
+.cart-container {
+  padding: 30px;
+  height: 605px;
+  overflow-y: auto;
+}
+
+.cart-container h2 {
+  margin-bottom: 20px;
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background: #f7f7f7;
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+}
+
+.cart-item img {
+  width: 100px;
+  height: 90px;
+  object-fit: contain;
+  background: white;
+  padding: 8px;
+}
+
+.cart-item div {
+  flex: 1;
+}
+
+.cart-item button,
+.checkout-btn {
+  padding: 10px 15px;
+  border: none;
+  background: #2f80c7;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.cart-item button:hover,
+.checkout-btn:hover {
+  background: #1f6cad;
+}
+
+.cart-total {
+  margin-top: 20px;
+  text-align: right;
+}
+
+.empty-cart {
+  font-size: 18px;
+  color: #333;
+}
+.quantity-box {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 10px 0;
+}
+
+.quantity-box button {
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.quantity-box span {
+  min-width: 25px;
+  text-align: center;
+  font-weight: bold;
+}
+.order-card {
+  background: #f7f7f7;
+  padding: 18px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+.order-card h3 {
+  margin-bottom: 8px;
+}
+
+.order-card p {
+  margin: 6px 0;
+}
+
+.order-card h4 {
+  margin-top: 10px;
+}
+.auth-box {
+  width: 380px;
+  background: #f5f5f5;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  text-align: center;
+}
+
+.auth-box h2 {
+  margin-bottom: 20px;
+}
+
+.auth-box input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 12px;
+  border: 1px solid #aaa;
+  border-radius: 5px;
+}
+
+.auth-box button {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  background: #2f80c7;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.auth-box p {
+  margin-top: 15px;
+}
+
+.auth-box a {
+  color: #2f80c7;
+  font-weight: bold;
+}
+.user-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  margin-left: 10px;
+}
+
+#userDisplay {
+  font-weight: bold;
+  color: #222;
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+#logoutBtn {
+  width: 90px;
+  padding: 8px;
+  border: none;
+  border-radius: 5px;
+  background: #444;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+#logoutBtn:hover {
+  background: #222;
+}
+#userDisplay {
+  font-weight: bold;
+  color: #222;
+  white-space: nowrap;
+}
+
+#logoutBtn {
+  width: 95px;
+  background: #444;
+}
+
+#logoutBtn:hover {
+  background: #222;
+}
+.auth-subtitle {
+  margin-bottom: 18px;
+  color: #555;
+  font-size: 14px;
+}
+
+.auth-link-text {
+  margin-top: 18px;
+  font-size: 14px;
+}
+
+.auth-link-text a {
+  color: #2f80c7;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.auth-link-text a:hover {
+  text-decoration: underline;
+}
+
+.back-login-btn {
+  margin-top: 10px;
+  background: #444 !important;
+}
+
+.back-login-btn:hover {
+  background: #222 !important;
+}

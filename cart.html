@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cart - Adidas Store</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="app">
+    <header>
+      <div class="logo">
+        <h2>adidas</h2>
+      </div>
+
+      <nav>
+        <button type="button" onclick="location.href='index.html'">HOME</button>
+        <button type="button" onclick="location.href='cart.html'">CART</button>
+        <button type="button" onclick="location.href='orders.html'">ORDERS</button>
+        <button type="button" class="icon-btn" onclick="location.reload()">↻</button>
+      </nav>
+    </header>
+
+    <main class="cart-container">
+      <h2>My Cart</h2>
+
+      <div id="cartItems"></div>
+
+      <div class="cart-total">
+        <h3 id="totalPrice">Total: ₱0</h3>
+        <button type="button" class="checkout-btn">CHECKOUT</button>
+      </div>
+    </main>
+  </div>
+
+  <script src="cart.js"></script>
+</body>
+</html>
