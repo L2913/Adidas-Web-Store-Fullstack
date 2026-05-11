@@ -1,4 +1,5 @@
 const API_URL = "https://adidas-web-store-backend.onrender.com/api/products";
+
 const productContainer = document.getElementById("productContainer");
 const userDisplay = document.getElementById("userDisplay");
 const logoutBtn = document.getElementById("logoutBtn");
@@ -8,16 +9,12 @@ let allProducts = [];
 async function displayProducts() {
   try {
     const response = await fetch(API_URL);
+    const products = await response.json();
 
-    if (!response.ok) {
-      throw new Error("Backend API error");
-    }
-
-    allProducts = await response.json();
-
+    allProducts = products;
     productContainer.innerHTML = "";
 
-    allProducts.forEach((product, index) => {
+    products.forEach((product, index) => {
       productContainer.innerHTML += `
         <div class="product-card">
           <img src="${product.image}" alt="${product.name}">
@@ -29,8 +26,8 @@ async function displayProducts() {
       `;
     });
   } catch (error) {
-    console.log("Product loading error:", error);
-    productContainer.innerHTML = "<p>Failed to load products. Please check backend.</p>";
+    console.log(error);
+    productContainer.innerHTML = "<p>Failed to load products.</p>";
   }
 }
 
@@ -80,6 +77,9 @@ function loadUser() {
     });
   }
 }
+
+window.addToCart = addToCart;
+window.showDetails = showDetails;
 
 displayProducts();
 loadUser();
