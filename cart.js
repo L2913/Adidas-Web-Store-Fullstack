@@ -1,3 +1,5 @@
+const ORDERS_URL = "https://adidas-web-store-backend.onrender.com/api/orders";
+
 const cartItemsContainer = document.getElementById("cartItems");
 const totalPriceText = document.getElementById("totalPrice");
 const checkoutBtn = document.querySelector(".checkout-btn");
@@ -14,7 +16,6 @@ function displayCart() {
   if (cart.length === 0) {
     cartItemsContainer.innerHTML =
       "<p class='empty-cart'>Your cart is empty.</p>";
-
     totalPriceText.textContent = "Total: ₱0";
     return;
   }
@@ -22,7 +23,7 @@ function displayCart() {
   let total = 0;
 
   cart.forEach((item, index) => {
-    const itemTotal = item.price * item.quantity;
+    const itemTotal = Number(item.price) * Number(item.quantity);
     total += itemTotal;
 
     cartItemsContainer.innerHTML += `
@@ -31,7 +32,7 @@ function displayCart() {
 
         <div>
           <h3>${item.name}</h3>
-          <p>Price: ₱${item.price.toLocaleString()}</p>
+          <p>Price: ₱${Number(item.price).toLocaleString()}</p>
 
           <div class="quantity-box">
             <button onclick="decreaseQuantity(${index})">-</button>
@@ -74,27 +75,21 @@ function removeItem(index) {
 }
 
 async function checkout() {
-
   const token = localStorage.getItem("token");
 
   if (!token) {
-
     alert("Please login first before checkout.");
-
     window.location.href = "login.html";
-
     return;
   }
 
   if (cart.length === 0) {
-
     alert("Your cart is empty.");
-
     return;
   }
 
-  let total = cart.reduce((sum, item) => {
-    return sum + item.price * item.quantity;
+  const total = cart.reduce((sum, item) => {
+    return sum + Number(item.price) * Number(item.quantity);
   }, 0);
 
   const orderData = {
@@ -104,43 +99,35 @@ async function checkout() {
   };
 
   try {
-
-    const response = await fetch(
-      "https://adidas-web-store-backend.onrender.com/api/orders",
-      {
-        method: "POST",
-
-        headers: {
-          "Content-Type": "application/json"
-        },
-
-        body: JSON.stringify(orderData)
-      }
-    );
+    const response = await fetch(ORDERS_URL, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(orderData)
+    });
 
     const data = await response.json();
 
     if (response.ok) {
-
       localStorage.removeItem("cart");
-
       alert("Checkout successful!");
-
       window.location.href = "orders.html";
-
     } else {
-
       alert(data.message);
     }
-
   } catch (error) {
-
     console.log(error);
-
-    alert("Checkout failed.");
+    alert("Checkout failed. Backend may be waking up. Try again.");
   }
 }
 
-checkoutBtn.addEventListener("click", checkout);
+if (checkoutBtn) {
+  checkoutBtn.addEventListener("click", checkout);
+}
+
+window.increaseQuantity = increaseQuantity;
+window.decreaseQuantity = decreaseQuantity;
+window.removeItem = removeItem;
 
 displayCart();
