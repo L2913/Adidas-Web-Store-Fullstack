@@ -1,5 +1,4 @@
-const API_URL = "http://localhost:5000/api/products";
-
+const API_URL = "https://adidas-web-store-backend.onrender.com/api/products";
 const productContainer = document.getElementById("productContainer");
 const userDisplay = document.getElementById("userDisplay");
 const logoutBtn = document.getElementById("logoutBtn");

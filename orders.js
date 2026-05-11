@@ -6,7 +6,7 @@ async function displayOrders() {
   try {
 
     const response = await fetch(
-      `http://localhost:5000/api/orders?username=${localStorage.getItem("username")}`
+      `https://adidas-web-store-backend.onrender.com/api/orders?username=${localStorage.getItem("username")}`
     );
 
     const orders = await response.json();

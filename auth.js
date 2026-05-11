@@ -1,4 +1,4 @@
-const AUTH_URL = "http://localhost:5000/api/auth";
+const AUTH_URL = "https://adidas-web-store-backend.onrender.com/api/auth";
 
 async function registerUser() {
   const username = document.getElementById("username").value.trim();
