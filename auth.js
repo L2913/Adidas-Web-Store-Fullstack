@@ -29,7 +29,7 @@ async function registerUser() {
     }
   } catch (error) {
     console.log(error);
-    alert("Registration failed. Please check your backend.");
+    alert("Registration failed. Backend may still be waking up. Try again.");
   }
 }
 
@@ -64,6 +64,9 @@ async function loginUser() {
     }
   } catch (error) {
     console.log(error);
-    alert("Login failed. Please check your backend.");
+    alert("Login failed. Backend may still be waking up. Try again.");
   }
 }
+
+window.registerUser = registerUser;
+window.loginUser = loginUser;
